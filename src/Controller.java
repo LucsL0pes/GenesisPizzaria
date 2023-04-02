@@ -1,14 +1,17 @@
 import java.util.*;
 
+
 public class Controller {
     private ArrayList<VendaPizza> vendasPizzas; 
+    
 
     public Controller(){
-        vendasPizzas = new ArrayList<VendaPizza>();
+        vendasPizzas = new ArrayList<VendaPizza>(100);
     }
 
     public void adicionaPizza(VendaPizza P){
         vendasPizzas.add(P);
+        System.out.println("pizza adicionada");
     }
 
     public double calculoPizzasVendidas(){
@@ -20,8 +23,8 @@ public class Controller {
     }
 
     public double calculoValorLiquido(){
-        double valorLiquido = calculoPizzasVendidas();
-        valorLiquido = valorLiquido * (4/10);
+        double valorTotal = calculoPizzasVendidas();
+        double valorLiquido = valorTotal * 0.4;
         return valorLiquido;
     }
 
@@ -33,5 +36,15 @@ public class Controller {
         };
     }
     return total;
+    }
+    public String toString(){
+        String toString = "";
+        for (VendaPizza vendaPizza : vendasPizzas) {
+            toString = toString + "\n { Sabor: "+vendaPizza.getSabor() + "\n "
+            +" Preço: "+ vendaPizza.getPreco() + "\n "
+            +" Tamanho: "+ vendaPizza.getTamanho()+" }\n\n";
+        }
+        return toString;
+
     }
 }

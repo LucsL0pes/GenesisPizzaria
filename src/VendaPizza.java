@@ -13,7 +13,6 @@ public double getPreco() {
     return preco;
 }
 
-
 public int getTamanho() {
     return tamanho;
 }
